@@ -1,4 +1,4 @@
--- Question 2
+-- Question 2: Create a SELECT statement that returns the count, average, max and min of the invoices submitted by each vendor, who has submitted more than one invoice. Order by the number of invoices in descending order. Should return 12 rows
 use ap;
 SELECT  vendor_name, count(*) AS number_of_invoices, round(AVG(invoice_total ), 2) AS avg_invoice_total, round( min(invoice_total),2) AS min_invoice_total, round(max(invoice_total),2) AS max_invoice_total
 FROM vendors v JOIN invoices i
@@ -7,7 +7,7 @@ GROUP BY vendor_name
 HAVING number_of_invoices > 1
 ORDER BY number_of_invoices DESC;
 
--- Question 3
+-- Question 3:  Write a SELECT statement that includes vendor_name, invoice_number, line_item_description, account_description. Order by vendor_name, line_item_description, account_description in ascending order and limit to first 10
 SELECT vendor_name, invoice_number, line_item_description, account_description
 FROM vendors v JOIN invoices i 
 ON v.vendor_id = i.vendor_id
